@@ -26,45 +26,51 @@ npm install -g yarn
 ```
 > 安裝 yarn 套件管理工具
 
++ project dependencies
+
 ```
 yarn install
 ```
 > 前往專案目錄下方，依據專案需要安裝相依套件
 
-### 測試
-
-```
-npm start
-```
-> 啟動一個伺服器來觀看編寫結果
->
-> 網址：http://localhost:4000
-
 ### 編譯
 
 ```
-npm run build
-```
-> 重新將編譯內容輸出，讓測試檔可以重讀新內容
-
-### 輸出
-
-1. 確定安裝 Calibre-ebook
-
-2. 執行輸出命令，並在 BUILD 檔案夾下輸出指定的電子書 (pdf, epub) 檔案
-> 若未執行第一步將無法正確輸出電子檔
-
-+ 產生電子書 (PDF、Epub)
-```
-npm run ebook
+yarn build
 ```
 
-+ 產生 PDF 檔案
-```
-npm run pdf
-```
+| 目錄 | 說明 |
+| == | ======== |
+| resource | 構成電子書的影像檔案目錄集合 |
+| build/temp | 電子書構成中緩存檔案 |
+| build/output | 電子書輸出檔存放位置 |
 
-+ 產生 Epub 檔案
+對於電子書影像檔案目錄與輸出電子書關係如下
+
 ```
-npm run epub
+resource
+  └ book1
+    └ 001.jpg
+    └ ...
+  └ book2
+    └ 001.png
 ```
+> 在 resource 下的目錄內的圖檔會構成單一電子書，若有複數目錄則產生複數電子書
+>
+> 若專案內部不存在此目錄，則軟體不會開始執行
+
+```
+build
+  └ temp
+    └ cover.jpg
+    └ ebook.html
+```
+> cover.jpg 是依據圖檔目錄中的第一張影像，如 book1/001.jpg
+
+```
+build
+  └ output
+    └ book1.epub
+    └ book2.epub
+```
+> 在 output 內的 epub 會以 resource 內的目錄名稱作為書名
