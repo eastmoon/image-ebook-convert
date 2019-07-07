@@ -1,0 +1,21 @@
+{
+  "name": "ebook",
+  "version": "1.0.0",
+  "description": "It is ebook-convert demo for ebook project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node main.js"
+  },
+  "keywords": [
+    "ebook"
+  ],
+  "author": "jacky.eastmoon",
+  "license": "ISC",
+  "devDependencies": {
+    "ebook-convert": "^2.0.1",
+    "handlebars": "^4.1.2",
+    "promise": "^8.0.3",
+    "shelljs": "^0.8.3"
+  }
+}
